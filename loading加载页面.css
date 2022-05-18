@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: deeppink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*z-index: 1;*/
+}
+.outLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #6b9eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.outLayer .progressBar {
+  width: 145px;
+  height: 6px;
+  background-color: white;
+  margin-top: 25px;
+  border-radius: 20px;
+}
+.outLayer .progressBar .bar {
+  height: 6px;
+  background-color: hotpink;
+  width: 0px;
+}
+.outLayer.complete .littleMonster {
+  transform: rotateZ(360deg) scale(0.1);
+  transition: 0.5s;
+}
+
+/*@keyframes spin{
+	0%{
+		transform: rotateZ(0deg);
+	}
+	50%{
+		transform: rotateZ(180deg);
+	}
+	100%{
+		transform: rotateZ(360deg) scale(0.1);
+	}
+
+}*/
+
+.text {
+  color: white;
+  font-weight: bold;
+}
+h3 {
+  color: gainsboro !important;
+}
+
+.littleMonster {
+  height: 110px;
+  width: 120px;
+  background-color: hotpink;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 10px 20px 20px rgb(0, 0, 0, 0.2);
+  animation: jumping 0.8s infinite alternate;
+}
+
+.littleMonster:before,
+.littleMonster:after {
+  content: '';
+  display: block;
+  width: 15%;
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+}
+.littleMonster:before {
+  transform: rotateZ(45deg);
+  left: 38%;
+}
+.littleMonster:after {
+  transform: rotateZ(-45deg);
+  left: 47%;
+}
+
+.littleMonster .eye {
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.littleMonster .eye .eyeBall {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: darkblue;
+  animation: roll 1.6s infinite alternate;
+
+  position: absolute;
+}
+
+.littleMonster .mouth {
+  width: 30%;
+  height: 8px;
+  background-color: white;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+.blue {
+  background-color: darkblue;
+  animation-delay: 0.5s;
+}
+
+.blue .eye .eyeBall {
+  background-color: deeppink;
+}
+
+@keyframes jumping {
+  50% {
+    top: 0px;
+    box-shadow: 10px 20px 20px rgb(0, 0, 0, 0.2);
+  }
+  100% {
+    top: -50px;
+    box-shadow: 10px 120px 20px rgb(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes roll {
+  0%,
+  10% {
+    transform: translateX(50%);
+  }
+  90%,
+  100% {
+    transform: translateX(-50%);
+  }
+}
